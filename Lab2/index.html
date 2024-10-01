@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table tr:first-child td:first-child,
+        table tr:first-child td:nth-child(2) {
+            width: 7.5rem;
+        }
+
+        td {
+            width: 13rem;
+            height: 1.5rem;
+            text-align: center;
+        }
+
+ .firstRow {
+    background: #838f8f;
+    color: #040C24;
+}
+
+.firstRow:hover {
+    background: #7C7070;
+}
+
+.secondRow {
+    background: #f5f583 ;
+}
+
+.secondRow:hover {
+    background: #5D42D6 ;
+}
+    </style>
+</head>
+<body>
+    <table>
+
+    </table>
+    <table border="1">
+        <tr class="firstRow">
+            <td rowspan="2">Брюхов</td>  
+            <td>Арсеній</td>
+            <td rowspan="2" colspan="2">Вікторович</td>
+        </tr>
+        <tr class="secondRow">
+            <td>ІМ-23, №2, 83 варіант</td>     
+        </tr>
+        <tr>
+            <td></td>  
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>  
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+      </table>
+      <div class="container">
+        <div class="square square1"></div>
+        <div class="square square2"></div>
+        <div class="square square3"></div>
+    </div>
+</body>
+</html>
