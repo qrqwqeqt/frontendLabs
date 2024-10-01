@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Учитываем отступы и рамки в размере элементов */
+    color: #f0f4f8;
+
+}
+
+a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #f0f4f8; /* Цвет текста ссылки */
+}
+
+a:visited {
+    text-decoration: none; /* Убираем подчеркивание для посещенных ссылок */
+    color: #f0f4f8; /* Цвет текста для посещенных ссылок */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Изменяем шрифт для всего документа */
+    background-color: #f0f4f8; /* Цвет фона страницы */
+    color: #333; /* Цвет текста */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Задаем высоту вьюпорта */
+}
+
+.external {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    gap: 20px; /* Промежуток между элементами */
+}
+
+.cont {
+    width: 200px; /* Ширина блока */
+    background-color: #fff; /* Цвет фона блока */
+    border: 1px solid #ccc; /* Рамка блока */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень блока */
+    padding: 15px; /* Внутренние отступы */
+    transition: transform 0.2s, box-shadow 0.2s; /* Плавный эффект при наведении */
+}
+
+.cont:hover {
+    transform: translateY(-5px); /* Поднимаем блок при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    gap: 10px; /* Промежуток между кнопками */
+}
+
+.button {
+    padding: 10px; /* Внутренние отступы кнопки */
+    background-color: #007BFF; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругляем углы кнопки */
+    cursor: pointer; /* Указываем, что кнопка кликабельна */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s, transform 0.2s; /* Плавный переход фона и размера */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
