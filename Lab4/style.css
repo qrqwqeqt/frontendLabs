@@ -1,0 +1,6 @@
+ /* Стиль для элементов */
+#elementColor {
+    background-color: lightgray;
+    color: black;
+    padding: 10px;
+}
