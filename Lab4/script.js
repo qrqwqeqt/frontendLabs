@@ -26,6 +26,8 @@ elementSecondColor.addEventListener("click", function(e) {
 const image = document.getElementById('image')
 const increaseButton = document.getElementById('increaceButton')
 const decreaceButton = document.getElementById('decreaceButton')
+const addButton = document.getElementById('addButton')
+const deleteButton = document.getElementById('deleteButton')
 
 const sizeChangeConst = 50;
 
@@ -45,6 +47,27 @@ decreaseButton.addEventListener('click', function(e){
     image.height = currentHeight - sizeChangeConst;
 
 });
+
+const imageContainer = document.querySelector("a");
+
+addButton.addEventListener('click', function(e){
+    const currentWidth = image.width;
+    const currentHeight = image.height;
+    const newImage = document.createElement("img");
+    newImage.src = "./image.jpg";
+    newImage.width = currentWidth;
+    newImage.height = currentHeight;
+    imageContainer.appendChild(newImage);
+})
+
+deleteButton.addEventListener('click', function(e){
+    const images = document.querySelectorAll("img");
+    if (images.length > 0) {
+        images[images.length - 1].remove();
+    } 
+}
+)
+
 
 function ColorChange(element1, element2){
     const element1Bgcolor = element1.style.backgroundColor;
