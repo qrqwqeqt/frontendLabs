@@ -5,18 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const idCardField = document.getElementById("idCard_field");
     const facultyField = document.getElementById("faculty_field");
     const birthField = document.getElementById("birth_field");
-
     const confirmButton = document.getElementById("confirm_button");
+    const table = document.getElementById("color_table");
+    const colorPicker = document.getElementById("color_picker");
+
+    const variantNumber = 3; // Номер варіанту
 
     confirmButton.addEventListener("click", (event) => {
-        event.preventDefault(); // Зупиняє стандартну поведінку кнопки
-
-        // Очистити помилки
+        event.preventDefault();
         clearErrors();
 
         let isValid = true;
 
-        // Перевірка полів
         if (!/^[А-Яа-яІіЇїЄєҐґ' ]{2,}\s[А-Яа-яІіЇїЄєҐґ]\.[А-Яа-яІіЇїЄєҐґ]\.$/.test(pibField.value.trim())) {
             showError(pibField);
             isValid = false;
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isValid) {
             try {
-                // Спробуйте відкрити нове вікно
                 const newWindow = window.open("", "_blank", "width=400,height=400");
                 if (newWindow) {
                     newWindow.document.write(`
@@ -86,9 +85,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function clearErrors() {
-        const fields = document.querySelectorAll(".fields input");
-        fields.forEach((field) => {
+        document.querySelectorAll(".fields input").forEach(field => {
             field.classList.remove("error");
         });
+    }
+
+    // Таблиця 6x6
+    let counter = 1;
+    for (let i = 0; i < 6; i++) {
+        const row = document.createElement("tr");
+        for (let j = 0; j < 6; j++) {
+            const cell = document.createElement("td");
+            cell.textContent = counter;
+
+            if (counter === variantNumber) {
+                cell.addEventListener("mouseenter", () => {
+                    cell.style.backgroundColor = getRandomColor();
+                });
+
+                cell.addEventListener("click", () => {
+                    cell.style.backgroundColor = colorPicker.value;
+                });
+
+                cell.addEventListener("dblclick", () => {
+                    const tableCells = document.querySelectorAll("#color_table td");
+                    tableCells.forEach((diagCell, index) => {
+                        if (index % 7 === 0) {
+                            diagCell.style.backgroundColor = colorPicker.value;
+                        }
+                    });
+                });
+            }
+
+            row.appendChild(cell);
+            counter++;
+        }
+        table.appendChild(row);
+    }
+
+    function getRandomColor() {
+        return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     }
 });
